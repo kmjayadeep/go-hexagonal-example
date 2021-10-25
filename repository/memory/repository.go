@@ -9,7 +9,7 @@ type memoryRepository struct {
 	store map[string]shortner.Redirect
 }
 
-func newMemoryRepository() (*memoryRepository, error) {
+func NewMemoryRepository() (*memoryRepository, error) {
 	store := make(map[string]shortner.Redirect)
 	return &memoryRepository{
 		store: store,
