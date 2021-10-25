@@ -1,11 +1,12 @@
 package api
 
 import (
+	"fmt"
 	"io/ioutil"
 	"log"
 	"net/http"
 
-	"github.com/go-chi/chi/v5"
+	"github.com/go-chi/chi"
 	"github.com/kmjayadeep/go-hexagonal-example/serializer/json"
 	"github.com/kmjayadeep/go-hexagonal-example/serializer/msgpack"
 	"github.com/kmjayadeep/go-hexagonal-example/shortner"
@@ -29,6 +30,7 @@ func NewHandler(redirectService shortner.RedirectService) RedirectHandler {
 
 func (h *handler) Get(w http.ResponseWriter, r *http.Request) {
 	code := chi.URLParam(r, "code")
+	fmt.Println("got url param", code)
 	redirect, err := h.redirectService.Find(code)
 	if err != nil {
 		if errors.Cause(err) == shortner.ErrRedirectNotFound {

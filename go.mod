@@ -4,7 +4,6 @@ go 1.17
 
 require (
 	github.com/go-chi/chi v1.5.4
-	github.com/go-chi/chi/v5 v5.0.4
 	github.com/pkg/errors v0.9.1
 	github.com/teris-io/shortid v0.0.0-20201117134242-e59966efd125
 	github.com/vmihailenco/msgpack v4.0.4+incompatible
