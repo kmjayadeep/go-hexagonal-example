@@ -1,32 +1,32 @@
 package memory
 
-import(
-  "github.com/kmjayadeep/go-hexagonal-example/shortner"
-  "github.com/pkg/errors"
+import (
+	"github.com/kmjayadeep/go-hexagonal-example/shortner"
+	"github.com/pkg/errors"
 )
 
 type memoryRepository struct {
-  store map[string]shortner.Redirect
+	store map[string]shortner.Redirect
 }
 
 func newMemoryRepository() (*memoryRepository, error) {
-  store := make(map[string]shortner.Redirect)
-  return &memoryRepository{
-    store: store,
-  }, nil
+	store := make(map[string]shortner.Redirect)
+	return &memoryRepository{
+		store: store,
+	}, nil
 }
 
 func (m *memoryRepository) Find(code string) (*shortner.Redirect, error) {
-  r, ok := m.store[code]
+	r, ok := m.store[code]
 
-  if !ok {
-    return nil, errors.Wrap(shortner.ErrRedirectNotFound, "repository.Redirect.Find")
-  }
+	if !ok {
+		return nil, errors.Wrap(shortner.ErrRedirectNotFound, "repository.Redirect.Find")
+	}
 
-  return &r, nil
+	return &r, nil
 }
 
-func (m *memoryRepository) Store(redirect *shortner.Redirect) (error) {
-  m.store[redirect.Code] = *redirect
-  return nil
+func (m *memoryRepository) Store(redirect *shortner.Redirect) error {
+	m.store[redirect.Code] = *redirect
+	return nil
 }
