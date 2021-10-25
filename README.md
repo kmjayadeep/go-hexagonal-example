@@ -4,7 +4,7 @@ This is an example illustrating how to structure code in go using
 hexagonal architecture
 
 Reference :
-<https://youtu.be/rQnTtQZGpg8?list=RDCMUCYqCZOwHbnPwyjawKfE21wg>
+<https://youtu.be/rQnTtQZGpg8>
 
 Here are some articles about hexagonal architecture
 * <https://blog.ndepend.com/hexagonal-architecture/>
@@ -33,5 +33,13 @@ Here are some articles about hexagonal architecture
 Run the following command to run the app
 
 ```
-go run ./...
+./run.sh
 ```
+
+Run the following to test the app
+
+```
+./scripts/test.sh
+```
+
+The script will create a new short link and print the output
